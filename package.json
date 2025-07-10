@@ -1,0 +1,22 @@
+{
+
+  "name": "election2025",
+  "version": "1.0.0",
+  "description": "מערכת בחירות מבוזרת, בה בוחרים יכולים להצביע עבור מועמד דרך CLI, והמנהל (admin) מנהל את הבחירות כולל מועמדים, טיימר, ותצוגת תוצאות. המצביע מקבל טוקן ERC20 אוטומטי לאחר הצבעה.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cli-table3": "^0.6.5",
+    "crypto-js": "^4.2.0",
+    "electron": "^37.1.0",
+    "elliptic": "^6.6.1",
+    "inquirer": "^8.2.6"
+  }
+}

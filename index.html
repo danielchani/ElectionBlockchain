@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Election 2025 – Voting Dashboard</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <div class="max-w-6xl mx-auto p-6 space-y-6">
+    <h1 class="text-3xl font-bold text-center">🗳️ Election 2025 – Admin & Voting Panel</h1>
+
+    <!-- Countdown Timer -->
+    <div id="countdown" class="text-center text-xl font-semibold text-indigo-600"></div>
+
+    <!-- Admin & Voter Panels Grid -->
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Start Election -->
+      <div class="panel transition transform hover:scale-105 hover:shadow-lg">
+        <h2 class="text-xl font-semibold mb-2">📅 Start Election</h2>
+        <input id="startTime" class="input" type="text" placeholder="2025-07-02 22:00">
+        <input id="endTime" class="input mt-2" type="text" placeholder="2025-07-02 23:59">
+        <button onclick="startElection()" class="btn-blue mt-4 transition duration-200 hover:opacity-80">Start</button>
+      </div>
+
+      <!-- Add Candidate -->
+      <div class="panel transition transform hover:scale-105 hover:shadow-lg">
+        <h2 class="text-xl font-semibold mb-2">➕ Add Candidate</h2>
+        <input id="candidateName" class="input" type="text" placeholder="Name">
+        <input id="candidateAnswers" class="input mt-2" type="text" placeholder="Positions (e.g. left,peace,economy)">
+        <button onclick="addCandidate()" class="btn-green mt-4 transition duration-200 hover:opacity-80">Add</button>
+      </div>
+
+      <!-- Generate Key -->
+      <div class="panel transition transform hover:scale-105 hover:shadow-lg">
+        <h2 class="text-xl font-semibold mb-2">🔐 Generate Voter Key</h2>
+        <button onclick="generateKey()" class="btn-purple mt-2 transition duration-200 hover:opacity-80">Generate</button>
+        <textarea id="voterKey" class="input mt-2" rows="3" readonly></textarea>
+      </div>
+
+      <!-- Manual Vote -->
+      <div class="panel transition transform hover:scale-105 hover:shadow-lg">
+        <h2 class="text-xl font-semibold mb-2">🗳️ Vote (Manual)</h2>
+        <label class="block mb-1">Select Candidate:</label>
+        <select id="manualCandidateSelect" class="input mb-2"></select>
+        <button onclick="voteManual()" class="btn-blue mt-2 transition duration-200 hover:opacity-80">Vote</button>
+      </div>
+
+    </div>
+
+    <!-- Ideological Wizard -->
+    <div id="wizard" class="panel p-5 rounded shadow transition transform hover:scale-105">
+      <h2 class="text-xl font-semibold mb-4">🧠 Ideological Questionnaire</h2>
+      <div id="step1">
+        <label class="block mb-1">Political Stance</label>
+        <select id="q1" class="input w-full">
+          <option value="left">Left</option>
+          <option value="center">Center</option>
+          <option value="right">Right</option>
+        </select>
+      </div>
+      <div id="step2" class="hidden">
+        <label class="block mb-1">Economic Preference</label>
+        <select id="q2" class="input w-full">
+          <option value="economy">Free Market</option>
+          <option value="welfare">Welfare</option>
+          <option value="tax-reduction">Tax Reduction</option>
+        </select>
+      </div>
+      <div id="step3" class="hidden">
+        <label class="block mb-1">Security Approach</label>
+        <select id="q3" class="input w-full">
+          <option value="security">Security</option>
+          <option value="peace">Peace</option>
+          <option value="neutral">Neutral</option>
+        </select>
+      </div>
+      <div class="flex justify-between mt-4">
+        <button id="prevBtn" onclick="prevStep()" class="btn-gray" disabled>Back</button>
+        <button id="nextBtn" onclick="nextStep()" class="btn-yellow">Next</button>
+      </div>
+    </div>
+
+    <!-- Simulation -->
+    <div class="panel transition transform hover:scale-105 hover:shadow-lg">
+      <h2 class="text-xl font-semibold mb-2">⚙️ Simulation</h2>
+      <input id="simCount" class="input w-full" type="number" min="1" value="10" placeholder="Number of voters">
+      <button onclick="runSimulation()" class="btn-purple mt-2 transition duration-200 hover:opacity-80">Run Simulation</button>
+    </div>
+
+    <!-- Results & Chart -->
+    <div class="panel transition transform hover:scale-105 hover:shadow-lg">
+      <h2 class="text-xl font-semibold mb-2">📊 Results & Control</h2>
+      <div class="flex items-center space-x-2">
+        <button onclick="showResults()" class="btn-blue transition duration-200 hover:opacity-80">Show Results</button>
+        <button onclick="resetAll()" class="btn-red transition duration-200 hover:opacity-80">Reset</button>
+      </div>
+      <canvas id="resultsChart" class="mt-4"></canvas>
+    </div>
+
+    <!-- Raw Output -->
+    <div class="bg-gray-900 text-white font-mono p-4 rounded">
+      <pre id="output"></pre>
+    </div>
+
+  </div>
+
+  <style>
+    .input  { @apply w-full p-2 border rounded; }
+    .panel  { @apply bg-white p-5 rounded shadow; }
+    .btn-blue   { @apply bg-blue-500 text-white px-4 py-2 rounded; }
+    .btn-green  { @apply bg-green-500 text-white px-4 py-2 rounded; }
+    .btn-red    { @apply bg-red-500 text-white px-4 py-2 rounded; }
+    .btn-yellow { @apply bg-yellow-400 text-gray-800 px-4 py-2 rounded; }
+    .btn-purple { @apply bg-purple-500 text-white px-4 py-2 rounded; }
+    .btn-gray   { @apply bg-gray-300 text-gray-800 px-4 py-2 rounded; }
+  </style>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
