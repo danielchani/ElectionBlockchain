@@ -1,2 +1,2 @@
 # ElectionBlockchain
-Election - Voting Blockchain based DApp with features for token rewards.
+Election - Encrypted Voting Blockchain based DApp with features for token rewards key generation.
