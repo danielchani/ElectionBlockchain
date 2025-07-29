@@ -1,53 +1,53 @@
 🧼 All data files reset.
 
-🧑‍💼 Added Candidate: candidate 1 (bc7a0e1e-9996-4c1c-aba1-2f52d5104010) → left, right, security
-🧑‍💼 Added Candidate: candidate 2 (9e41e9a7-52e1-45aa-a429-e0b918336284) → right, left, peace
-🧑‍💼 Added Candidate: candidate 3 (9c18bf80-5c78-4cb2-a881-e5b8851f6c54) → economy, security, center
+🧑‍💼 Added Candidate: candidate 1 (1b3426cd-1750-41b1-b40d-23533caebb11) → left, right, economy
+🧑‍💼 Added Candidate: candidate 2 (9252797f-b466-4b19-b187-aa58109de2ec) → right, economy, left
+🧑‍💼 Added Candidate: candidate 3 (f6af05dc-88b9-43e4-9435-b45fe2835b85) → left, security, center
 
 🟢 Election is now open!
 
 ✅ Voter 1:
-   Public Key: 04d41cbbc84dad5cf01f5219f8981b8ab6d2c1f05540372a81ac3b885673cfe4433d688d770eff762b96c60c72ddaf9a103db4d08285766094a409f762cf76eda7
+   Public Key: 041ccf46228db3d173c904d607ee9695df83c19f70cf3de27590878963114c5628f286d9da499b30d3ed0dd2822f7deed6504422bf53de8a38e83ee7bbb7f89b32
    Answers: economy, left, peace
-   Matched to: candidate 2 (9e41e9a7-52e1-45aa-a429-e0b918336284)
-   Candidate Answers: right, left, peace
+   Matched to: candidate 1 (1b3426cd-1750-41b1-b40d-23533caebb11)
+   Candidate Answers: left, right, economy
    Shared Positions: 2
 
 ✅ Voter 2:
-   Public Key: 047c76f5011f4705e2ed6e547b44573fbc67350355a98e7d7ab9d9044a29eb97187107a6ef4f4467cf209256192a1676954128e964792f1af9d6efc324ca2bb034
-   Answers: economy, right, peace
-   Matched to: candidate 2 (9e41e9a7-52e1-45aa-a429-e0b918336284)
-   Candidate Answers: right, left, peace
+   Public Key: 04a99ad45ab0cb2cd5683c31f50e08ae7fab3479440da746d9771bbd92a209900863adb36a7a3099f42e596c7ed74b56c948ac398bb23c3f60df20fd119f5e4355
+   Answers: left, right, peace
+   Matched to: candidate 1 (1b3426cd-1750-41b1-b40d-23533caebb11)
+   Candidate Answers: left, right, economy
    Shared Positions: 2
 
 ✅ Voter 3:
-   Public Key: 046a873929de64401c96743718c9f4db6a84d65936b633deed3404b5d42c8e8fd9179741c409fa5ce3ff5e819e79838df386a1614289c8842e8651349ee25a45e0
-   Answers: peace, economy, left
-   Matched to: candidate 2 (9e41e9a7-52e1-45aa-a429-e0b918336284)
-   Candidate Answers: right, left, peace
+   Public Key: 04ee857186c6c8703930306577f2d638b7de59e62beeb9d9e770dda77580649ed122b56e21f32147baf42c935a6ce04b26e315cec692a501d5d736b204f0aec366
+   Answers: left, right, center
+   Matched to: candidate 1 (1b3426cd-1750-41b1-b40d-23533caebb11)
+   Candidate Answers: left, right, economy
    Shared Positions: 2
 
 ✅ Voter 4:
-   Public Key: 046d3ec9d0901a61e930db62c6face1767367fa7e5d912d25587583075cbad1b1cd217ab7f572e6f69979599ef57a56860265d5b734dd3e51e749f434cd70a9669
-   Answers: left, peace, right
-   Matched to: candidate 2 (9e41e9a7-52e1-45aa-a429-e0b918336284)
-   Candidate Answers: right, left, peace
-   Shared Positions: 3
+   Public Key: 0487421e51deba2ffba09b800a7979b34fb2329317515ed3b283806c9ee7faa03e06b633a941d2fc35650905c40137a321c8d96f7af930ce3844a46a7c50007939
+   Answers: center, economy, left
+   Matched to: candidate 1 (1b3426cd-1750-41b1-b40d-23533caebb11)
+   Candidate Answers: left, right, economy
+   Shared Positions: 2
 
 ✅ Voter 5:
-   Public Key: 0418ebced8b13420aeed1851b57ebcbff0e0e07a63bbe188de3e144a56b6cad5c47ddecf5d3ca23d92ee9f5ab01c51205011c18a5f21d421058513efd9449959df
-   Answers: peace, security, economy
-   Matched to: candidate 3 (9c18bf80-5c78-4cb2-a881-e5b8851f6c54)
-   Candidate Answers: economy, security, center
+   Public Key: 04a7bde7519d16d4162a36d97f8bc1fc2ecd79b1ccea8070ece0ebd2f387402581be20214bfb1c415b4b27d676326d1069fa414024b6d63109391d3713a7f696a7
+   Answers: economy, security, center
+   Matched to: candidate 3 (f6af05dc-88b9-43e4-9435-b45fe2835b85)
+   Candidate Answers: left, security, center
    Shared Positions: 2
 
 
 🛑 Election closed.
 
 📊 Election Results:
-1. candidate 2 – 4 votes
+1. candidate 1 – 4 votes
 2. candidate 3 – 1 votes
-3. candidate 1 – 0 votes
+3. candidate 2 – 0 votes
 
 💰 Voter Token Balances:
 Voter 1: 1 tokens
