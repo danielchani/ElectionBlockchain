@@ -503,19 +503,7 @@ Planned improvements include:
 
 ---
 
-## Portfolio Summary
 
-Election 2025 is a blockchain-integrated voting management prototype built with Electron, Node.js, Solidity, Web3.js, and Hardhat.
-
-The project demonstrates smart contract-based vote recording, voter hash registration, ECDSA key generation, questionnaire-based candidate matching, election simulation, and real-time result visualization.
-
----
-
-## CV-Friendly Description
-
-Developed a blockchain-integrated voting management system using Electron, Node.js, Solidity, Web3.js, and Hardhat. Implemented smart contract-based vote recording, voter key generation, SHA-256 voter hashing, candidate management, questionnaire-based candidate matching, voting simulation, and real-time result visualization.
-
----
 
 ## License
 
