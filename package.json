@@ -9,12 +9,12 @@
   "main": "main.js",
 
   "scripts": {
-
-    "start": "electron .",
-
-    "test": "echo \"Error: no test specified\" && exit 1"
-
-  },
+  "start": "electron .",
+  "compile": "hardhat compile",
+  "node": "hardhat node --hostname 127.0.0.1",
+  "deploy:local": "hardhat run scripts/deploy.js --network localhost",
+  "test": "echo \"No automated tests configured yet\" && exit 0"
+},
 
   "keywords": [],
 
