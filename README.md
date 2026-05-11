@@ -1,119 +1,145 @@
-# Election 2025 – לוח ניהול והצבעה מבוזרת
+# Election 2025 – Decentralized Voting Management System
 
-**Election 2025** היא אפליקציית שולחן עבודה מבוססת **Electron** ו-**Node.js**, המדמה מערכת הצבעה מבוזרת עם:
-- לוח ניהול (Admin)
-- שאלון רב־שלבי למצביגים
-- טיימר חי לסיום הבחירות
-- מצב סימולציה למאות הצבעות
-- גרפים ויזואליים (Chart.js)
-- עיצוב מודרני עם Tailwind CSS
+Election 2025 is a desktop-based voting management application built with Electron and Node.js.  
+The project simulates a decentralized election workflow with voter key generation, encrypted voter identification, candidate management, ideological candidate matching, vote simulation, and visual result analysis.
+
+The system was designed as an academic software engineering project focused on secure voting concepts, transparent election management, and an extensible architecture that can later be connected to blockchain smart contracts.
 
 ---
 
-## 🚀 תכונות עיקריות
+## Overview
 
-### ניהול אדמין
-- **הגדרת חלון בחירות** (זמן התחלה/סיום)  
-- **הוספת מועמדים** עם עמדות אידאולוגיות  
+Election 2025 provides two main workflows:
 
-### חווית מצביע
-- **מחולל מפתח ציבורי** (ECDSA/secp256k1)  
-- **הצבעה ידנית** באמצעות תפריט בחירה  
-- **שאלון אידאולוגי רב־שלבי** (Political, Economic, Security) → התאמת מועמד אוטומטית
+1. **Administrator Workflow**
+   - Configure an election time window
+   - Add and manage candidates
+   - Monitor election activity
+   - Run voting simulations
+   - View election results and statistics
 
-### אלמנטים בזמן אמת
-- **Countdown Timer** שמציין זמן שנותר להצבעה  
-- **אנימציות Tailwind**: hover, scale, transitions  
-- **לוג סטייל Toast** לכל פעולה
+2. **Voter Workflow**
+   - Generate a public voting key
+   - Submit a vote manually
+   - Complete an ideological questionnaire
+   - Receive automatic candidate matching based on political, economic, and security preferences
 
-### מצב סימולציה
-- **Bulk Simulation**: ביצוע N הצבעות מדומות  
-- הוספת מועמדי ברירת מחדל אם אינם קיימים  
-- עדכון תוצאות ולוג מידי
-
-### תוצאות וגרפים
-- **גרף עמודות** המציג את מספר הקולות לכל מועמד (Chart.js)  
-- **טבלאות** וסיכום טקסטואלי באזור התחתון  
-
-### איפוס מערכת
-- **Reset All**: מנקה מצב בזיכרון ובקבצי JSON לקבלת התחלה רעננה
+The application stores election state locally using JSON files and uses cryptographic hashing to protect voter identifiers.
 
 ---
 
-## 📂 מבנה התיקיות
+## Main Features
 
-```
+### Election Administration
+
+- Configure election start and end times
+- Add candidates with ideological positions
+- Track election state during runtime
+- Reset the system state when needed
+- Manage election data through a graphical interface
+
+### Voter Key Generation
+
+- Generates a public key using ECDSA over the `secp256k1` curve
+- Uses the generated key as the voter’s unique voting identity
+- Hashes the public key before storing voter-related data
+
+### Voting Methods
+
+The system supports two voting flows:
+
+- **Manual voting** – the voter selects a candidate directly
+- **Questionnaire-based voting** – the system recommends a candidate based on voter answers
+
+The questionnaire is divided into several ideological categories:
+
+- Political views
+- Economic views
+- Security views
+
+Based on the voter’s answers, the system compares preferences against candidate positions and selects the most suitable candidate.
+
+### Real-Time Election Elements
+
+- Live countdown timer until the election closes
+- Immediate UI updates after voting actions
+- Toast-style activity log for user and administrator actions
+- Interactive UI transitions using Tailwind CSS
+
+### Bulk Voting Simulation
+
+The simulation mode allows testing the system with a large number of generated votes.
+
+It can be used to:
+
+- Stress-test election logic
+- Demonstrate result changes over time
+- Quickly populate the system with sample voting data
+- Validate candidate result calculations
+
+If default candidates are missing, the simulation can populate the system with predefined candidates for demonstration purposes.
+
+### Results and Data Visualization
+
+Election results are displayed using both textual summaries and visual charts.
+
+The results section includes:
+
+- Candidate vote totals
+- Tabular result summaries
+- Bar chart visualization using Chart.js
+- Real-time result refresh after new votes or simulations
+
+### System Reset
+
+The application includes a reset option that clears the current election state from memory and local JSON storage.
+
+This allows the system to return to a clean initial state for testing, demonstrations, or new election scenarios.
+
+---
+
+## Technology Stack
+
+### Core Technologies
+
+- Electron
+- Node.js
+- JavaScript
+- HTML
+- Tailwind CSS
+
+### Data and State
+
+- Local JSON-based persistence
+- File-based election state management
+
+### Security and Cryptography
+
+- `crypto-js` for SHA-256 hashing
+- `elliptic` for ECDSA key generation using `secp256k1`
+- Hashed voter identifiers to avoid storing raw public keys directly as voter records
+
+### Visualization
+
+- Chart.js for election result graphs
+
+---
+
+## Project Structure
+
+```text
 Election2025/
-├── data/                     # JSON files (state)
+├── data/
 │   ├── candidates.json
 │   ├── voters.json
 │   ├── results.json
 │   └── election_state.json
+│
 ├── src/
-│   └── election.js           # לוגיקת הבחירות ושמירה
-├── index.html                # ממשק UI (Tailwind + Chart.js)
-├── renderer.js               # התנהגות UI, טיימר, wizard, גרפים
-├── main.js                   # Bootstrap של Electron
-├── package.json              # תלויות ו-scripts להרצה
-└── README.md                 # תיעוד ועדכון אחרון
-```
-
----
-
-## ⚙️ התקנה והרצה
-
-1. **התקנת תלויות**:
-   ```bash
-   npm install
-   ```
-2. **הרצת האפליקציה**:
-   ```bash
-   npm start
-   ```
-3. חלון ה־Electron ייפתח – השתמשו בלוח הניהול כדי להתחיל בחירות.
-
----
-
-## 📋 מדריך שימוש
-
-### לוח אדמין
-1. **Start Election**: הכנסו זמן התחלה וזמן סיום (YYYY-MM-DD HH:MM) → **Start**.  
-2. **Add Candidate**: הזינו שם מועמד + עמדות (comma-separated) → **Add**.  
-
-### לוח מצביע
-1. **Generate Key**: לחצו **Generate** לקבלת מפתח ציבורי חדש.  
-2. **Manual Vote**: בחרו מועמד מתוך התפריט → **Vote**.
-
-### שאלון רב־שלבי
-- נווטו בין שלבים באמצעות **Next/Back** → בשלב השלישי לחצו **Vote**.
-
-### סימולציה
-- הזינו מספר מצביעים → לחצו **Run Simulation** כדי להריץ סימולציה מלאה.
-
-### תוצאות וגרפים
-- לחצו **Show Results** להצגת טבלת קולות + גרף עמודות.
-
-### איפוס
-- לחצו **Reset** לניקוי כל המצבים והקבצים.
-
----
-
-## 🧩 מתחת למכסה המנוע
-
-- **שמירת מצב**: קבצי JSON בתיקיית `/data`  
-- **הצפנת מזהי בוחר**: SHA256(publicKey) עם crypto-js  
-- **מחולל מפתחות**: elliptic.secp256k1  
-- **עיצוב**: Tailwind CSS  
-- **גרפים**: Chart.js
-
----
-
-## 🔮 הרחבות עתידיות
-
-- **Smart Contracts**: העברת לוגיקת הבחירות ל־Solidity (Hardhat)  
-- **ERC20 Rewards**: הנפקת מטבע לתגמול מצביעים on-chain  
-- **MetaMask/Web3**: ממשק dApp אמיתי עם טרנזקציות בארנק
-
----
-
-© 2025 Election 2025 Contributors
+│   └── election.js
+│
+├── index.html
+├── renderer.js
+├── main.js
+├── package.json
+└── README.md
