@@ -480,7 +480,6 @@ Current limitations include:
 - The system is not deployed to a public testnet or mainnet
 - MetaMask integration is not fully implemented
 - Voter identity verification is simulated
-- The project is not externally audited
 - The reset function is intended only for local development
 - Some legacy JSON-based files may remain from earlier versions of the project
 
